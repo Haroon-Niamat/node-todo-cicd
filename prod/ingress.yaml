@@ -1,25 +1,25 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: todo-app
-  namespace: notes
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: todo-app
+#   namespace: notes
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+#     cert-manager.io/cluster-issuer: letsencrypt-prod
 
-spec:
-  tls:
-    - hosts:
-        - myapp.devclouds.live
-      secretName: tls-myapp-secret
-  rules:
-    - host: myapp.devclouds.live
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: todo-app
-                port:
-                  number: 8000
+# spec:
+#   tls:
+#     - hosts:
+#         - myapp.devclouds.live
+#       secretName: tls-myapp-secret
+#   rules:
+#     - host: myapp.devclouds.live
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: todo-app
+#                 port:
+#                   number: 8000
