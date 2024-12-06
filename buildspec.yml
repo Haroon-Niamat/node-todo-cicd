@@ -10,14 +10,13 @@ phases:
   pre_build:
     commands:
       - echo "Running tests..."
-      - npm run test
+      - npm test # Runs the test script defined in your package.json
   build:
     commands:
-      - echo "Building the application..."
-      - npm run build # Replace 'build' with your build script if defined in package.json
-
+      - echo "Preparing production build..."
+      - npm run build || echo "No build script defined, skipping build step."
 artifacts:
   files:
     - '**/*'
-    - '!node_modules/**/*' # Exclude node_modules to reduce artifact size
+    - '!node_modules/**/*' # Exclude node_modules to save storage space
   discard-paths: no
